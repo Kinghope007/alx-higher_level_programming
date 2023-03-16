@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-def number_key(a_dictionary):
-    i = a_dictionary.key()
-    j = len(i)
+def number_keys(a_dictionary):
+    keys = 0
+    j = list(a_dictionary.key())
 
-    return (j)
+    for i in h:
+        keys += 1
+
+    return keys
