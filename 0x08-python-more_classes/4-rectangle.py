@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """A class that defines a rectangle """
+
+
 class Rectangle:
-    """this represents a rectancle """
+    """this represents a rectancle"""
+
     def __init__(self, width=0, height=0):
         """Initializing this rectangle class
         Args:
@@ -18,6 +21,7 @@ class Rectangle:
     def width(self):
         """retrieves width attribute"""
         return self.__width
+
     @width.setter
     def width(self, value):
         """sets width attribute"""
