@@ -15,10 +15,9 @@ if __name__ == '__main__':
                 passwd=sys.argv[2],
                 db=sys.argv[3])
         cursor = db_connection.cursor()
-        state_name = sys.argv[4]
         cursor.execute(
                 'SELECT * FROM states WHERE CAST(name AS BINARY) LIKE ' +
-                'CAST("{}" AS BINARY) ORDER BY id ASC;'.format(state_name)
+                'CAST("{:s}" AS BINARY) ORDER BY id ASC;'.format(sys.argv[4])
                 )
        results = cursor.fetchall()
        for result in rsults:
