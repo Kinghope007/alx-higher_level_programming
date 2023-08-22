@@ -7,8 +7,7 @@ import sys
 import MySQLdb
 
 if __name__ == '__main__':
-    if len(sys.argv) >= 5:
-        db_connection - MySQldb.connect(
+    db_connection = MySQldb.connect(
                 host='localhost',
                 port=3306,
                 user=sys.argv[1],
@@ -16,8 +15,7 @@ if __name__ == '__main__':
                 db=sys.argv[3])
         cursor = db_connection.cursor()
         cursor.execute(
-                'SELECT * FROM states WHERE CAST(name AS BINARY) LIKE ' +
-                'CAST("{:s}" AS BINARY) ORDER BY id ASC;'.format(sys.argv[4])
+                'SELECT * FROM states WHERE name LIKE '{:S}' ORDER BY id ASC;'.format(sys.argv[4])
                 )
        results = cursor.fetchall()
        for result in rsults:
