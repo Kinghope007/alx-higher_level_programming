@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""A script that
-- fetches https://alx-intranet.hbtn.io/status.
-- uses urlib package
+""" A Script that
+     fetches https://alx-intranet.hbtn.io/status
+     use the package urllib
+     The body of the response must be displayed like the following example (tabulation before -)
 """
-
 
 if __name__ == '__main__':
     import urllib.request
 
-    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
-        content = res.read()
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
+        content = response.read()
         print("Body response:")
         print("\t- type: {}".format(type(content)))
         print("\t- content: {}".format(content))

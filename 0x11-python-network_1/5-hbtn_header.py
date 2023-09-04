@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""Check status"""
-import requests
+"""
+    Fetches a header of a response from a URL.
+"""
 import sys
-
-
-def header():
-    """status"""
-    result = requests.get(sys.argv[1])
-
-    print(result.headers.get("X-Request-Id", None))
+import requests
 
 if __name__ == "__main__":
-    header()
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+        response = requests.get(url)
+        if 'X-Request-Id' in response.headers:
+            print(response.headers['X-Request-Id'])
