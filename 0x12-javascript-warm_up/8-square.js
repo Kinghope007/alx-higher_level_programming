@@ -1,20 +1,19 @@
 #!/usr/bin/node
-/**
- * square - Prints a square with 'X'.
- * @param {Number} size - The size of the square.
- */
-function square (size) {
-  if (Number.isNaN(size)) {
-    console.log('Missing size');
-  } else if (size >= 0) {
-    const row = new Array(size);
-    for (let i = 0; i < size; i++) {
-      row.push('X');
+
+const size = parseInt(process.argv[2]);
+
+if (isNaN(size)) {
+  console.log('Missing size');
+} else {
+  let i = 0;
+  while (i < size) {
+    let row = '';
+    let j = 0;
+    while (j < size) {
+      row += 'X';
+      j++;
     }
-    let rows = new Array(size);
-    rows = rows.fill(row.join(''), 0, size);
-    console.log(rows.join('\n'));
+    console.log(row);
+    i++;
   }
 }
-
-square(Number.parseInt(process.argv[2]));
