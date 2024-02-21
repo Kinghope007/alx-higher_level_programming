@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-""" A Script that 
-    takes in a URL, sends a request to the URL
-    nd displays the value of the X-Request-Id variable found in the header of the response.
+"""
+Script that takes in a URL, sends a request to the url,
+and display the value od X-request-id variavble found
+in the header of the response
 """
 
-if __name__ == "__main___":
-    import sys
-    import urllib.request
 
-    url = sys.argv[1]
-    request = urllib.request.Request(url)
+import urllib.request
+import sys
 
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+    with urllib.request.urlopen(url) as response:
+        request_id = response.getheader('X-Request-Id')
+        print(request_id)

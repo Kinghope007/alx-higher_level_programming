@@ -1,18 +1,14 @@
 #!/usr/bin/python3
-"""
-     Python script that takes in a URL, sends a request to the URL
-     and displays the body of the response.
-     If the HTTP status code is greater than or equal to 400, print:
-     Error code: followed by the value of the HTTP status code
-"""
+"""Sends a request to a URL and prints its response or error code."""
 import sys
 import requests
 
+
 if __name__ == '__main__':
-    if len (sys.argv) > 1:
+    if len(sys.argv) > 1:
         url = sys.argv[1]
         response = requests.get(url)
         if response.status_code >= 400:
-            print('Error code: {}'.forma(response.status_code))
+            print('Error code: {}'.format(response.status_code))
         else:
             print(response.text)

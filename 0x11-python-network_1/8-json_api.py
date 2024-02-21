@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-"""
-    Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
-"""
+"""Sends a search parameter to a URL."""
 import sys
 import requests
 
+
 if __name__ == '__main__':
     url = 'http://0.0.0.0:5000/search_user'
-    query = sys.argv[1] if len (sys.argv) > 1 else ""
+    query = sys.argv[1] if len(sys.argv) > 1 else ""
+    # if len(query) > 0 and not query[0].isalpha():
+    #     query = ""
     form_data = [('q', query)]
     response = requests.post(url, data=form_data)
     try:
-        json_content =response.json()
+        json_content = response.json()
         if json_content:
             print('[{}] {}'.format(json_content['id'], json_content['name']))
         else:
